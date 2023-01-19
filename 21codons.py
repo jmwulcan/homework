@@ -6,6 +6,9 @@
 
 dna = 'ATAGCGAATATCTCTCATGAGAGGGAA'
 
+for position in range(0,len(dna) -2, 3):
+	print(dna[position:position+3])
+
 
 """
 python3 21codons.py
