@@ -5,6 +5,16 @@
 # Use the same loop for both calculations
 
 # Note: you may not import math or any other library
+n = 5 #I want it to return n, 1+2+3+4+5, 1*2*3*4*5
+run_sum = 0
+fac = 1
+for i in range(1, n+1):
+	run_sum += i #running sum
+	fac = fac * i # factorial
+print(n, end = ' ')
+print(run_sum, end = ' ')
+print(fac, end = ' ')
+
 
 
 """
