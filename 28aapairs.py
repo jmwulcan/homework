@@ -8,88 +8,14 @@
 # Hint: if you get stuck for more than 10 minutes, get help
 
 aa = 'ACDEFGHIKLMNPQRSTVWY' #variable of all amino acids
+combos = 0
 
-#Creates a variable containing all unique pairwise combinations. There is
-#probably a better way.
+for i in range(len(aa)):
+	for j in range(i + 1, len(aa)):
+		print(aa[i], aa[j])
+		combos += 1
 
-aa_pair = ''
-for i in aa:
-	if i != 'A': aa_pair += 'A' + i
-for i in aa:
-	if i != 'A' and i !='C': aa_pair += 'C' + i
-for i in aa:
-	if i != 'A' and i !='C' and i !='D': aa_pair += 'D' + i
-for i in aa:
-	if i != 'A' and i != 'C' and i !='D' and i != 'E': aa_pair += 'E' + i
-for i in aa:
-	if i != 'A' and i != 'C' and i !='D' and i != 'E' and i != 'F': \
-	aa_pair += 'F' + i
-for i in aa:
-	if i != 'A' and i != 'C' and i !='D' and i != 'E' and i != 'F' and \
-	i != 'G': aa_pair += 'G' + i
-for i in aa:
-	if i != 'A' and i != 'C' and i !='D' and i != 'E' and i != 'F' and i != 'G'\
-	and i != 'H': aa_pair += 'H' + i
-for i in aa:
-	if i != 'A' and i != 'C' and i !='D' and i != 'E' and i != 'F' and i != 'G'\
-	and i != 'H' and i != 'I': aa_pair += 'I' + i
-for i in  aa:
-	if i != 'A' and i != 'C' and i !='D' and i != 'E' and i != 'F' and i != 'G'\
-	and i != 'H' and i != 'I' and i !='K': aa_pair += 'K' + i
-for i in  aa:
-	if i != 'A' and i != 'C' and i !='D' and i != 'E' and i != 'F' and i != 'G'\
-	and i != 'H' and i != 'I' and i !='K' and  i != 'L': aa_pair += 'L' + i
-for i in  aa:
-	if i != 'A' and i != 'C' and i !='D' and i != 'E' and i != 'F' and i != 'G'\
-	and i != 'H' and i != 'I' and i !='K' and  i != 'L' and i !='M' \
-	: aa_pair += 'M' + i
-for i in  aa:
-	if i != 'A' and i != 'C' and i !='D' and i != 'E' and i != 'F' and i != 'G'\
-	and i != 'H' and i != 'I' and i !='K' and  i != 'L' and i !='M' and i !='N'\
-	: aa_pair += 'N' + i
-for i in  aa:
-	if i != 'A' and i != 'C' and i !='D' and i != 'E' and i != 'F' and i != 'G'\
-	and i != 'H' and i != 'I' and i !='K' and  i != 'L' and i !='M' and i !='N'\
-	and i != 'P': aa_pair += 'P' + i
-for i in  aa:
-	if i != 'A' and i != 'C' and i !='D' and i != 'E' and i != 'F' and i != 'G'\
-	and i != 'H' and i != 'I' and i !='K' and  i != 'L' and i !='M' and i !='N'\
-	and i != 'P' and i != 'Q': aa_pair += 'Q' + i
-for i in  aa:
-	if i != 'A' and i != 'C' and i !='D' and i != 'E' and i != 'F' and i != 'G'\
-	and i != 'H' and i != 'I' and i !='K' and  i != 'L' and i !='M' and i !='N'\
-	and i != 'P' and i != 'Q' and i != 'R': aa_pair += 'R' + i
-for i in  aa:
-	if i != 'A' and i != 'C' and i !='D' and i != 'E' and i != 'F' and i != 'G'\
-	and i != 'H' and i != 'I' and i !='K' and  i != 'L' and i !='M' and i !='N'\
-	and i != 'P' and i != 'Q' and i != 'R' and i != 'S': aa_pair += 'S' + i
-for i in  aa:
-	if i != 'A' and i != 'C' and i !='D' and i != 'E' and i != 'F' and i != 'G'\
-	and i != 'H' and i != 'I' and i !='K' and  i != 'L' and i !='M' and i !='N'\
-	and i != 'P' and i != 'Q' and i != 'R' and i != 'S' and i !='T':\
-	 aa_pair += 'T' + i
-for i in  aa:
-	if i != 'A' and i != 'C' and i !='D' and i != 'E' and i != 'F' and i != 'G'\
-	and i != 'H' and i != 'I' and i !='K' and  i != 'L' and i !='M' and i !='N'\
-	and i != 'P' and i != 'Q' and i != 'R' and i != 'S' and i !='T' and i !='V'\
-	: aa_pair += 'V' + i
-for i in  aa:
-	if i != 'A' and i != 'C' and i !='D' and i != 'E' and i != 'F' and i != 'G'\
-	and i != 'H' and i != 'I' and i !='K' and  i != 'L' and i !='M' and i !='N'\
-	and i != 'P' and i != 'Q' and i != 'R' and i != 'S' and i !='T' and i !='V'\
-	and i != 'W': aa_pair += 'W' + i
-
-# Prints the pairs in a format similar to expected output
-
-for position in range(0, len(aa_pair) - 1, 2):
-	print(aa_pair[position], end = ' ')
-	print(aa_pair[position + 1])
-
-#Calculates number of combinations and prints the number as an integer
-
-comb = len(aa_pair)/2
-comb = int(comb)
-print(comb)
+print(combos)
 
 
 """
