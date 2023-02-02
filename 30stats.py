@@ -25,7 +25,7 @@ for i in sys.argv[1:]:
 	sum_diff_squared += diff_squared
 sd=	(sum_diff_squared/count)**0.5
 
-#Calculate median
+#Calculate median - there must be a better way
 vec = ''
 for i in sys.argv[1:]:
 	vec += i

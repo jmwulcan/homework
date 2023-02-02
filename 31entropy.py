@@ -18,6 +18,7 @@ for pi in sys.argv[1:]:
 	H += float(pi) * math.log2(float(pi))
 H = - H
 print(f'{H:.3F}')
+
 """
 python3 31entropy.py 0.1 0.2 0.3 0.4
 1.846
