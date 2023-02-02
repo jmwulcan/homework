@@ -16,7 +16,7 @@ w = 11
 
 
 for position in range (len(seq)- w + 1):
-	dna = seq[position:position+11]
+	dna = seq[position:position+w]
 	GC = 0
 	for nt in dna:
 		if nt == 'G' or nt == 'C': GC += 1
