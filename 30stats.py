@@ -10,45 +10,37 @@
 import sys
 
 #Calculate count
-count=len(sys.argv[1:])
+nums=len(sys.argv[1:])
 
 # Calculate mean
-sum=0
+tot = 0
 for i in sys.argv[1:]:
-	sum += float(i)
-mean=sum/count
+	tot += float(i)
+mean = tot/nums
 
 #Calculate standard deviation
 sum_diff_squared = 0
 for i in sys.argv[1:]:
 	diff_squared = (float(i) - mean)**2
 	sum_diff_squared += diff_squared
-sd=	(sum_diff_squared/count)**0.5
+sd =	(sum_diff_squared/nums)**0.5
 
-#Calculate median - there must be a better way
+#Calculate median 
+mid = nums // 2
 vec = ''
 for i in sys.argv[1:]:
 	vec += i
 vec_list = list(vec)
 vec_list.sort()
-if count%2 != 0:
-	median_pos = int(len(vec)/2)
-	median_list = vec_list[median_pos:median_pos+1]
-	median = ''.join(median_list)
-	median = int(median)
-if count%2 == 0:
-	median_pos_low = int(len(vec)/2)
-	median_pos_high = int(len(vec)/2)+1
-	median_low_list = vec_list[median_pos_low:median_pos_low+1]
-	median_high_list = vec_list[median_pos_high:median_pos_high+1]
-	median_low = ''.join(median_low_list)
-	median_high = ''.join(median_high_list)
-	median_low = int(median_low)
-	median_high = int (median_high)
-	median = median_low + median_high / 2
+if nums%2 != 0:
+	median = float(vec_list[mid])
+if nums%2 == 0:
+	median_low = float(vec_list[mid])
+	median_high = float(vec_list[mid + 1])
+	median = (median_low + median_high) /2
 
 #Print output
-print(f'Count: {count}')
+print(f'Count: {nums}')
 print(f'Minimum: {float(min(sys.argv))}')
 print(f'Maximum: {float(max(sys.argv))}')
 print(f'Mean: {mean: .4f}')
