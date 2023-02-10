@@ -22,30 +22,25 @@ genome_size = int(sys.argv[1])
 read_number = int(sys.argv[2])
 read_length = int(sys.argv[3])
 
-#Creates a list of covered positions in genome read, 1 occasion per read
-covered = []
+#Creates list with position, and how many times they are covered
+covered = [0] * genome_size #Empty list same size as genome
+
 for read in range (0, read_number):
 	start = random.randint(0, genome_size - read_length)
 	for pos in range (start, start + read_length):
-		covered.append(pos)
-		
-# Creates a list of how many time each position is covered
-pos_coverage = []
-for pos in range(0, genome_size): 
-	pos_covered = covered.count(pos) 
-	pos_coverage.append(pos_covered)
-	
-# excludes ends (undersampled)
-pos_coverage_no_ends = pos_coverage[read_length:len(pos_coverage) - read_length]
+		covered[pos] += 1
+
+#excludes ends (undersampled)
+no_ends = covered[read_length:len(covered) - read_length]
 
 #Prints results
-print(min(pos_coverage_no_ends), end = ' ')
-print(max(pos_coverage_no_ends), end = ' ')
-print(sum(pos_coverage_no_ends)/len(pos_coverage_no_ends))
+print(min(no_ends), end = ' ')
+print(max(no_ends), end = ' ')
+print(sum(no_ends)/len(no_ends))
 
 
 
-"""
+"""	
 python3 32xcoverage.py 1000 100 100
 5 20 10.82375
 """
