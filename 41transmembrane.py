@@ -88,8 +88,6 @@ proteome = sys.argv[1]
 
 for name_def, seq in mcb185.read_fasta(proteome):
 	
-	
-	
 	sigpep = 0
 	hreg = 0
 	
