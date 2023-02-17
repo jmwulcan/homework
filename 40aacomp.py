@@ -12,8 +12,6 @@
 import gzip
 import sys
 
-fp = gzip.open(sys.argv[1], 'rt')
-
 def read_fasta(filename):
 	seqs = []
 	while True:
@@ -69,6 +67,7 @@ def counting(protein):
 
 	return A, C, D, E, F, G, H, I, K, L, M, N, P, Q, R, S, T, V, W, Y
 
+fp = gzip.open(sys.argv[1], 'rt')
 seqs = read_fasta(fp)
 #print(seqs)
 
