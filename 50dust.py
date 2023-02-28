@@ -70,19 +70,19 @@ t = arg.t
 centerw = w // 2
 
 for defline, seq in mcb185.read_fasta(file):
-	seq = list(seq)
+	seq2 = list(seq)
 	for pos in range(len(seq) - w + 1):
 		
 		wseq = seq[pos:pos+w]
 		H = entropy_filter(wseq, w)
 		if H < t:
-			if arg.lower: seq[pos + centerw] = seq[pos + centerw].lower()
-			else: seq[pos+centerw] = 'N'
+			if arg.lower: seq2[pos + centerw] = seq2[pos + centerw].lower()
+			else: seq2[pos+centerw] = 'N'
 		else: continue
-	seq = ''.join(seq)
+	seq2 = ''.join(seq2)
 	print('>', defline)
-	for pos in range(0, len(seq), 60):
-		print(seq[pos: pos+60])
+	for pos in range(0, len(seq2), 60):
+		print(seq2[pos: pos+60])
 
 
 """
