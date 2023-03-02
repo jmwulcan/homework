@@ -40,13 +40,13 @@ def entropy_filter(seq, w):
 	G = 0
 	C = 0
 	for nt in seq:
-		if nt == 'A' or nt == 'a':
+		if nt == 'A':
 			A += 1
-		elif nt == 'T' or nt == 't':
+		elif nt == 'T':
 			T += 1
-		elif nt == 'G' or nt == 'g':
+		elif nt == 'G':
 			G += 1
-		elif nt == 'C' or nt == 'c':
+		elif nt == 'C':
 			C += 1
 	
 	pA = A / w
@@ -64,21 +64,19 @@ def entropy_filter(seq, w):
 	
 	return H
 
-file = arg.file
-w = arg.w
-t = arg.t
-centerw = w // 2
 
-for defline, seq in mcb185.read_fasta(file):
+centerw = arg.w // 2
+
+for defline, seq in mcb185.read_fasta(arg.file):
+	seq = seq.upper()
 	seq2 = list(seq)
-	for pos in range(len(seq) - w + 1):
-		
-		wseq = seq[pos:pos+w]
-		H = entropy_filter(wseq, w)
-		if H < t:
-			if arg.lower: seq2[pos + centerw] = seq2[pos + centerw].lower()
-			else: seq2[pos+centerw] = 'N'
-		else: continue
+	for i in range(len(seq) - arg.w + 1):
+		wseq = seq[i:i+arg.w]
+		H = entropy_filter(wseq, arg.w)
+		if H < arg.t:
+			for j in range(arg.w):
+				if arg.lower: seq2[i+j] = seq2[i+j].lower()
+				else: seq2[i+j] = 'N'
 	seq2 = ''.join(seq2)
 	print('>', defline)
 	for pos in range(0, len(seq2), 60):
