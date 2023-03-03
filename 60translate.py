@@ -71,5 +71,5 @@ QEYDESGPSIVHRKCF*\
 
 import mcb185
 
-print(mcb185.translate(actin_cds, 0))
+print(mcb185.translate(actin_cds))
 
