@@ -49,7 +49,21 @@ gcode = {
 	'TTA' : 'L',	'TTC' : 'F',	'TTG' : 'L',	'TTT' : 'F',
 }
 
-def translate(filename, frame):
+# Gives complementary strand to seq
+def anti(filename):
+	filename = filename.upper()
+	compl = ''
+	for nt in filename[::-1]:
+		if nt == 'A': compl += 'T'
+		elif nt == 'T': compl += 'A'
+		elif nt == 'G': compl += 'C'
+		elif nt == 'C': compl += 'G'
+	return compl
+
+# Translates cds to protein (optional arguments for frame and strand)	
+def translate(filename, frame=0, strand='pos'):
+	
+	if strand == 'neg': filename = anti(filename)
 	protein = ''
 	
 	for pos in range(frame, len(filename)-2, 3):
@@ -60,4 +74,4 @@ def translate(filename, frame):
 		else: protein += 'X'
 	return(protein)
 
-# def other functions...
+
