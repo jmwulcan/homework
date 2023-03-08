@@ -20,14 +20,14 @@ arg = parser.parse_args()
 
 for defline, seq in mcb185.read_fasta(arg.file):
 	kmers = {}
-	for pos in range(0, len(seq)-1):
-		kmer = seq[pos:pos+2]
+	for pos in range(0, len(seq)-arg.k+1):
+		kmer = seq[pos:pos+arg.k]
 		if kmer not in kmers: kmers[kmer] = 0
 		kmers[kmer] += 1
 	for key, val in sorted(kmers.items()): print(key, val)
 	
 """
-python3 60kmers.py ~/DATA/E.coli/GCF_000005845.2_ASM584v2_genomic.fna.gz 2
+python3 61kmers.py ~/DATA/E.coli/GCF_000005845.2_ASM584v2_genomic.fna.gz 2
 AA 338006
 AC 256773
 AG 238013
