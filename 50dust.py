@@ -78,7 +78,8 @@ for defline, seq in mcb185.read_fasta(arg.file):
 				if arg.lower: seq2[i+j] = seq2[i+j].lower()
 				else: seq2[i+j] = 'N'
 	seq2 = ''.join(seq2)
-	print('>', defline)
+	print('>', end='')
+	print(defline)
 	for pos in range(0, len(seq2), 60):
 		print(seq2[pos: pos+60])
 
