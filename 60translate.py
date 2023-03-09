@@ -71,4 +71,4 @@ QEYDESGPSIVHRKCF*\
 
 import mcb185
 
-print(mcb185.translate(actin_cds))
+print(mcb185.translate(actin_cds, frame = 0, strand = 'pos'))

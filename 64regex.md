@@ -12,4 +12,5 @@ Regex Quick Reference
 - [a-d] = the letters a, b, c, d
 - () = captures group
 - \( = matches left parenthesis
+- \s+ = any number of spaces
 

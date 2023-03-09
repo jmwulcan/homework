@@ -61,9 +61,9 @@ def anti(filename):
 	return compl
 
 # Translates cds to protein (optional arguments for frame and strand)	
-def translate(filename, frame=0, strand='pos'):
+def translate(filename, frame=0, strand='+'):
 	
-	if strand == 'neg': filename = anti(filename)
+	if strand == '-': filename = anti(filename)
 	protein = ''
 	
 	for pos in range(frame, len(filename)-2, 3):
