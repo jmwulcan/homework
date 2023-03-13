@@ -39,7 +39,6 @@ for line in fp:
 		chromcount[chromosome]+= 1
 			
 for key, val in chromcount.items(): print(key, val, file = sys.stderr )
-#print(chromcount, file = sys.stderr)	
 		
 print(json.dumps(cs, indent=4))
 
