@@ -4,8 +4,7 @@
 # Use the E. coli genome gff
 # Your code should mimic the output below
 
-# Make a list
-# make dictionaries each containing  keys gene, beg, end and strand
+
 
 import sys
 import gzip
@@ -25,8 +24,9 @@ for line in fp:
 		geneinfo['beg'] = match.group(2)
 		geneinfo['end'] = match.group(4)
 		geneinfo['strand'] = match.group(6)
-		print(geneinfo)
-		allgenes.append(geneinfo)
+		#print(geneinfo)
+		allgenes.append(geneinfo.items()): print(key, val)
+			
 
 
 print(json.dumps(allgenes, indent=4))
