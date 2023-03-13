@@ -25,8 +25,7 @@ for line in fp:
 		geneinfo['end'] = match.group(4)
 		geneinfo['strand'] = match.group(6)
 		#print(geneinfo)
-		allgenes.append(geneinfo.items()): print(key, val)
-			
+		allgenes.append(geneinfo)
 
 
 print(json.dumps(allgenes, indent=4))
