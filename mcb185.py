@@ -18,7 +18,7 @@ def read_fasta(filename):
 		line = line.rstrip()
 		if line.startswith('>'): 
 			if len(seqs) > 0:
-				#yield(name, ''.join(seqs))
+				yield(name, ''.join(seqs))
 				name = line[1:]
 				seqs = []
 			else:

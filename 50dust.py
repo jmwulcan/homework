@@ -65,7 +65,8 @@ def entropy_filter(seq, w):
 	return H
 
 
-centerw = arg.w // 2
+#centerw = arg.w // 2
+
 
 for defline, seq in mcb185.read_fasta(arg.file):
 	seq = seq.upper()
@@ -77,6 +78,7 @@ for defline, seq in mcb185.read_fasta(arg.file):
 			for j in range(arg.w):
 				if arg.lower: seq2[i+j] = seq2[i+j].lower()
 				else: seq2[i+j] = 'N'
+
 	seq2 = ''.join(seq2)
 	print('>', end='')
 	print(defline)
