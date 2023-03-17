@@ -13,4 +13,4 @@ Regex Quick Reference
 - () = captures group
 - \( = matches left parenthesis
 - \s+ = any number of spaces
-
+- \w{3} = exactly 4 word symbols 
