@@ -24,7 +24,7 @@ mean = tot/nums
 if nums %2 != 0:
 	median = float(vals[mid])
 else:
-	median = (float(vals[mid])*2+1)/2
+	median = (float(vals[mid])*2-1)/2
 
 #Calculate standard deviation
 sum_diff_squared = 0
@@ -32,7 +32,6 @@ for val in vals:
 	diff_squared = (float(val) - mean)**2
 	sum_diff_squared += diff_squared
 sd = (sum_diff_squared/nums)**0.5
-
 
 
 
